@@ -1,5 +1,6 @@
 package com.bbd.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -9,21 +10,18 @@ public class Spittle {
 
     private final Long id;
     private final String message;
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日 HH:mm")
     private final Date time;
     private Double latitude;
-    private Double longtude;
+    private Double longitude;
 
 
-    public Spittle(String message, Date time, Double latitude, Double longtude) {
-        id = null;
+    public Spittle(Long id, String message, Date time, Double latitude, Double longitude) {
+        this.id = id;
         this.message = message;
         this.time = time;
         this.latitude = latitude;
-        this.longtude = longtude;
-    }
-
-    public Spittle(String message, Date time) {
-        this(message, time, null, null);
+        this.longitude = longitude;
     }
 
     public Long getId() {
@@ -46,12 +44,12 @@ public class Spittle {
         this.latitude = latitude;
     }
 
-    public Double getLongtude() {
-        return longtude;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setLongtude(Double longtude) {
-        this.longtude = longtude;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     @Override

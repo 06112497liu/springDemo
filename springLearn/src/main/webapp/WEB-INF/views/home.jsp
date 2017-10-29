@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: IRues
@@ -13,7 +14,7 @@
 <body>
     <h1>Welcome Come Spittr</h1>
 
-    <a href="<c:url value='/com/bbd/controller' />">Spittles</a> |
-    <a href="<c:url value='/com/bbd/controller/register'/>">Register</a>
+    <a href="<c:url value='/spittles' />">Spittles</a> |
+    <a href="<c:url value='/'/>">Register</a>
 </body>
 </html>

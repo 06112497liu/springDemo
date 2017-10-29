@@ -38,7 +38,7 @@ public class SpittleControllerTest {
     private List<Spittle> createSpittleList(int count) {
         List<Spittle> list = Lists.newArrayList();
         for(int i=0; i<count; i++) {
-            list.add(new Spittle("Spittle " + i, new Date()));
+            list.add(new Spittle(Long.parseLong(i + ""), "Spittle " + i, new Date(), 28.49, 69.78));
         }
         return list;
     }
