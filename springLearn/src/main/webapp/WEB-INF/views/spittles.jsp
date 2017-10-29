@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%--
   Created by IntelliJ IDEA.
   User: IRues
@@ -17,7 +18,10 @@
             <div class="spittleMessage">
                 <c:out value="${spittle.message}"/>
             </div>
-            <span class="spittleTime"><c:out value="${spittle.time}"/></span>
+            <span class="spittleTime">
+                <fmt:formatDate value="${spittle.time}" pattern="yyyy年MM月dd日"/>
+            </span>
+            <br/>
             <span class="spittleLocation">
                 (<c:out value="${spittle.latitude}"/>, <c:out value="${spittle.longitude}"/>)
             </span>

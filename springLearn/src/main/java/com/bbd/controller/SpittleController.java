@@ -22,7 +22,6 @@ public class SpittleController {
     }
 
     @RequestMapping(value = "/spittles", method = RequestMethod.GET)
-    @ResponseBody
     public List<Spittle> spittles() {
         return spittleRespository.findSpittles(Long.MAX_VALUE, 20);
     }
