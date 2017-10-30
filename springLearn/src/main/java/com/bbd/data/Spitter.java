@@ -3,6 +3,7 @@ package com.bbd.data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author Liuweibo
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 public class Spitter {
 
     private Long id;
+    @Size(min = 6, max = 8, message = "firstName必须是{min}到{max}位。")
     private String firstName;
     private String lastName;
     @NotNull(message = "用户名不能为空")

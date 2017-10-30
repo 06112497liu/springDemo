@@ -20,6 +20,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
         viewResolver.setExposeContextBeansAsAttributes(true);
+        viewResolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
         return viewResolver;
     }
 
@@ -28,4 +29,34 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         // 我们要求DispathcherServlet将对静态资源的请求转发到Servlet中默认的Servlet上，而不是使用DispatcherServlet本省来处理此类请求
         configurer.enable();
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

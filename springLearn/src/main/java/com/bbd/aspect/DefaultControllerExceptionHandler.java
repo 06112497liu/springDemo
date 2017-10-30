@@ -1,5 +1,6 @@
 package com.bbd.aspect;
 
+import com.bbd.exception.ApplicationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -9,6 +10,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @ControllerAdvice
 public class DefaultControllerExceptionHandler {
+
+    @ExceptionHandler(ApplicationException.class)
+    public String applicationExceptionHandler(ApplicationException e) {
+        return "error";
+    }
 
     @ExceptionHandler(Exception.class)
     public String exceptionHandler(Exception e) {

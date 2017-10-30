@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: IRues
-  Date: 2017/10/29
-  Time: 13:36
+  Date: 2017/10/30
+  Time: 22:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,9 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Welcome Come Spittr</h1>
-
-    <a href="<c:url value='/spitter/spittles' />">Spittles</a> |
-    <a href="<c:url value='/spitter/register'/>">Register</a>
+    <c:out value="${spitter.username}"/><br/>
+    <c:out value="${spitter.firstName}"/><br/>
+    <c:out value="${spitter.lastName}"/>
 </body>
 </html>
