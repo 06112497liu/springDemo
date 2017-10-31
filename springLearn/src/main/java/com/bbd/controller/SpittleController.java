@@ -13,9 +13,13 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.mail.Multipart;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
@@ -43,7 +47,11 @@ public class SpittleController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String processRegistration(RedirectAttributes model, @Valid Spitter spitter, Errors errors) {
+    public String processRegistration(RedirectAttributes model,
+                                      @RequestPart(value = "profilePicture", required = false) byte[] profilePicture,
+                                      @RequestPart(value = "profilePicture", required = false) MultipartFile multipartFile,
+                                      @RequestPart(value = "profilePicture", required = false) Part part, // sevlet3.0支持的文件上传，这个就不用配置MultipartResolver了
+                                      @Valid Spitter spitter, Errors errors) {
         if(errors.hasErrors()) return "registerForm";
         spittleRespository.save(spitter);
         model.addFlashAttribute("spitter", spitter);

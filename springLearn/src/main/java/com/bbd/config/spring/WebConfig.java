@@ -3,11 +3,15 @@ package com.bbd.config.spring;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import java.io.IOException;
 
 @Configuration
 @EnableWebMvc // 启用SpringMvc
@@ -22,6 +26,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         viewResolver.setExposeContextBeansAsAttributes(true);
         viewResolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
         return viewResolver;
+    }
+
+    @Bean
+    public MultipartResolver multipartResolver() throws IOException {
+        return new StandardServletMultipartResolver();
     }
 
     @Override
